@@ -6,7 +6,7 @@ namespace Dirigera.Models
 {
     public class EnvironmentSensor : Device
     {
-        public int CurrentTemperature { get; internal set; }
+        public decimal CurrentTemperature { get; internal set; }
         public int CurrentRH { get; internal set; }
         public int CurrentPM25 { get; internal set; }
         public int MaxMeasuredPM25 { get; internal set; }
@@ -25,7 +25,7 @@ namespace Dirigera.Models
             // Extract the "standard" attributes from the Attributes dictionary into their own properties
             if (dto.Attributes is not null)
             {
-                if (dto.Attributes.ContainsKey("currentTemperature")) CurrentTemperature = dto.Attributes["currentTemperature"].GetInt32();
+                if (dto.Attributes.ContainsKey("currentTemperature")) CurrentTemperature = dto.Attributes["currentTemperature"].GetDecimal();
                 if (dto.Attributes.ContainsKey("currentRH")) CurrentRH = dto.Attributes["currentRH"].GetInt32();
                 if (dto.Attributes.ContainsKey("currentPM25")) CurrentPM25 = dto.Attributes["currentPM25"].GetInt32();
                 if (dto.Attributes.ContainsKey("maxMeasuredPM25")) MaxMeasuredPM25 = dto.Attributes["maxMeasuredPM25"].GetInt32();
